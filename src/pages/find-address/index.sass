@@ -1,0 +1,47 @@
+section.buscar-endereco
+   display: flex
+   justify-content: center
+   text-align: center
+   flex-direction: column
+   width: 100%
+
+   form
+      display: inline-block
+   input
+      text-align: center
+
+   ul#resultList
+      height: 0
+      overflow: hidden
+
+   ul#resultList.show
+      height: auto
+
+   ul#resultList, ul#resultList li    
+      min-width: 400px
+      max-width: 600px
+      margin: 0 auto
+      list-style: none
+
+   ul#resultList li
+      text-align: left
+      background-color: rgba(33, 33, 33, .45)
+      padding: 5px
+      text-transform: capitalize
+      font-style: italic
+      b
+         font-style: normal
+         display: inline-block
+         width: 150px
+         padding-right: 5px
+         text-align: right
+      b.initials
+         text-transform: uppercase
+
+   ul#resultList li:nth-child(even)
+      background-color: rgba(33, 33, 33, .2)
+
+   .error
+      margin-top: 75px
+      font-style: italic
+      color: rgb(250, 70, 0)

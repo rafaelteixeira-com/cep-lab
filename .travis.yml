@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - 10
+
+stage:
+  - name: dev
+  - name: prod
+
+jobs:
+  include:
+    - stage: dev
+      if: branch = "develop"
+      name: "PARALLEL_1 A"
+      script: echo "hello world from DEV A"
+#      if: branch IN (develop)
+      
+    - script: echo "hello world from DEV B"
+      name: "PARALLEL_1 B"
+#      if: branch IN (develop)
+
+    - stage: dev
+      name: "PARALLEL_2 A"
+      script: echo "hello world from DEV A"
+      
+    - script: echo "hello world from DEV B"
+      name: "PARALLEL_2 B"
+    
+    - stage: prod
+      name: PROD_A
+      script: echo "hello world from PROD A"
+      
+    - script: echo "hello world from PROD B"
+      name: PROD_B
